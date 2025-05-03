@@ -72,7 +72,7 @@ const Skills = () => {
     return (
         <div  className="container mx-auto p-2">
         <h2 className="text-center font-permanentMarker text-4xl mb-10">Skills</h2>
-        <div className="grid grid-cols-4 lg:grid-cols-5 justify-between gap-8 text-center">
+        <div className="grid grid-cols-4 lg:grid-cols-5 justify-between gap-8 gap-y-16 text-center">
           {skills.map((skill, i) => (
            <div key={i} className="flex flex-col items-center justify-center">
            <div className="text-6xl">

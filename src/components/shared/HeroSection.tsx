@@ -63,7 +63,7 @@ const HeroSection = () => {
         </div>
 
         {/* image */}
-        <div className=" hidden lg:flex items-center justify-center">
+        <div className=" hidden lg:flex items-center justify-center brightness-75">
           <div className=" w-3/4 h-3/4">
 
           <Image
