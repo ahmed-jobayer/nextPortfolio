@@ -1,12 +1,12 @@
 import Navbar from "@/components/shared/Navbar";
+
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    < >
       <Navbar />
-
-      <main className="container mx-auto">{children}</main>
-    </div>
+      <main className="min-h-screen bg-richBlack">{children}</main>
+    </>
   );
 };
 
-export default CommonLayout;
+export default CommonLayout; 

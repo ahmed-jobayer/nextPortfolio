@@ -1,12 +1,9 @@
-import { Button } from "@/components/ui/button";
+import HeroSection from "@/components/shared/HeroSection";
 
 const HomePage = () => {
-    return (
-        <div>
-            <Button>click</Button>
-          
-        </div>
-    );
+  return <div>
+    <HeroSection/>
+  </div>;
 };
 
 export default HomePage;
