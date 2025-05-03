@@ -21,7 +21,7 @@ const HeroSection = () => {
       {/* Content container */}
       <div
         id="banner"
-        className="relative z-10 grid grid-cols-2  h-full border border-classicGold text-offWhite"
+        className="relative z-10 grid grid-cols-2  h-full text-offWhite"
       >
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center px-4">
