@@ -57,6 +57,7 @@ const Navbar = () => {
   return (
    <>
     <div className="fixed  bottom-4 left-1/2 -translate-x-1/2 z-20 md:hidden">
+    {/* navbar mobile */}
       <div className="flex flex-row gap-4 mt-4 items-end">
         {navLinks.map(({ id, icon, label }, i) => (
           <a
@@ -75,7 +76,7 @@ const Navbar = () => {
         ))}
       </div>
     </div>
-    <div className="md:fixed top-1/4 right-2 z-20 w-[125px] flex justify-end">
+    <div className="md:fixed top-1/4 right-2 z-20 w-[125px] flex justify-end hidden">
       <div className="flex flex-col gap-4 mt-4 items-end">
         {navLinks.map(({ id, icon, label }, i) => (
           <a

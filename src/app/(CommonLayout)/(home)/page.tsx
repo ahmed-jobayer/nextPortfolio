@@ -1,4 +1,5 @@
 "use client";
+
 import HeroSection from "@/components/shared/HeroSection";
 import AboutMe from "@/components/shared/AboutMe";
 import Projects from "@/components/shared/Projects";
@@ -12,9 +13,13 @@ const HomePage = () => {
   return (
     <div className="text-lightGrey">
       <Navbar />
+
+      {/* Hero Section with its own background */}
       <section id="home" className="min-h-screen">
         <HeroSection />
       </section>
+
+      {/* Start background image AFTER HeroSection */}
       <div className="relative z-0">
         <div className="fixed inset-0 -z-10 brightness-50">
           <Image
@@ -29,13 +34,17 @@ const HomePage = () => {
         <section id="about" className="min-h-screen">
           <AboutMe />
         </section>
-        <div className=" divide-y-4 divide-classicGold"></div>
+
+        <div className="divide-y-4 divide-classicGold" />
+
         <section id="skills" className="min-h-screen">
           <Skills />
         </section>
+
         <section id="projects" className="min-h-screen">
           <Projects />
         </section>
+
         <section id="contact" className="min-h-screen">
           <ContactMe />
         </section>
