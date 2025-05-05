@@ -7,7 +7,7 @@ import { Download, ScanEye } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 const HeroSection = () => {
   return (
-    <div className="w-full min-h-screen border">
+    <div className="w-full min-h-screen">
       <div className="absolute inset-0">
         <Image
           className="z-10 brightness-50"
