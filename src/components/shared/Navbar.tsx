@@ -55,7 +55,27 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed top-1/4 right-2 z-20 w-[125px] flex justify-end">
+   <>
+    <div className="fixed  bottom-4 left-1/2 -translate-x-1/2 z-20 md:hidden">
+      <div className="flex flex-row gap-4 mt-4 items-end">
+        {navLinks.map(({ id, icon, label }, i) => (
+          <a
+            key={i}
+            onClick={() => handleScrollToSection(id)}
+            className="flex justify-end w-full"
+          >
+            <NavButton
+              icon={icon}
+              label={label}
+              className={
+                activeSection === id ? "!bg-classicGold !text-mutedGrey" : ""
+              }
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+    <div className="md:fixed top-1/4 right-2 z-20 w-[125px] flex justify-end">
       <div className="flex flex-col gap-4 mt-4 items-end">
         {navLinks.map(({ id, icon, label }, i) => (
           <a
@@ -74,6 +94,7 @@ const Navbar = () => {
         ))}
       </div>
     </div>
+   </>
   );
 };
 
