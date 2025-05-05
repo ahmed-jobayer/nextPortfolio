@@ -5,12 +5,14 @@ import {
   FaWhatsappSquare,
 } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import SectionHeading from "./SectionHeading";
 
 const ContactMe = () => {
   return (
-    <div className=" min-h-[70vh] flex flex-col items-center justify-center px-6 container mx-auto mb-20">
+    <div className=" min-h-[70vh] container mx-auto ">
+      <SectionHeading title="CONTACCT"/>
       {/* Main content */}
-      <div className="flex flex-col gap-10 lg:flex-row w-full lg:justify-between lg:items-center mt-10">
+      <div className="flex flex-col gap-10 lg:flex-row w-full lg:justify-between lg:items-center">
         {/* Left Section */}
         <div className="lg:w-1/2 font-poiretOne  flex flex-col">
           <div className="text-7xl font-bold">
@@ -22,7 +24,7 @@ const ContactMe = () => {
         </div>
 
         {/* Right Section */}
-        <div className="lg:w-1/2 mt-8 lg:mt-0">
+        <div className="lg:w-1/2  ">
           <div className="flex flex-col space-y-8 items-center">
             {/* Contact Info */}
             <div className="text-[#AEA7AA]">

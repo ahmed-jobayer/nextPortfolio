@@ -1,5 +1,6 @@
 import project1 from "@/assets/project1.png"
 import ProjectCard from "@/components/shared/ProjectCard";
+import SectionHeading from "@/components/shared/SectionHeading";
 import { StaticImageData } from "next/image";
 
 const ProjectPage = () => {
@@ -29,12 +30,12 @@ const ProjectPage = () => {
           title: 'Open Source CLI Tool',
           description: 'A CLI tool for automating repetitive dev tasks, written in TypeScript and Node.js.',
           link: '/projects/project3'
-        }
+        } 
       ];
 
     return (
         <div className="min-h-[70vh] px-6 py-12">
-        <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+        <SectionHeading title="PROJECTS"/>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
     
