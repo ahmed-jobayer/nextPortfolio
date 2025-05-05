@@ -76,7 +76,7 @@ const Navbar = () => {
         ))}
       </div>
     </div>
-    <div className="md:fixed top-1/4 right-2 z-20 w-[125px] flex justify-end hidden">
+    <div className="md:fixed top-1/4 right-2 z-20 w-[125px] md:flex justify-end hidden">
       <div className="flex flex-col gap-4 mt-4 items-end">
         {navLinks.map(({ id, icon, label }, i) => (
           <a

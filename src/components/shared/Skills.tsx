@@ -5,6 +5,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiExpress, SiMongodb, SiMongoose, SiTailwindcss, SiVite } from "react-icons/si";
 import { TbBrandRedux } from "react-icons/tb";
+import SectionHeading from "./SectionHeading";
 
 const Skills = () => {
     const skills = [
@@ -12,7 +13,7 @@ const Skills = () => {
           name: "Next.js",
           icon: RiNextjsFill, 
         },
-        {
+        { 
           name: "React",
           icon: FaReact,  
         },
@@ -70,8 +71,8 @@ const Skills = () => {
         },
       ];
     return (
-        <div  className="container mx-auto p-2">
-        <h2 className="text-center font-permanentMarker text-4xl mb-10">Skills</h2>
+        <div  className="container mx-auto">
+        <SectionHeading title="SKILLS"/>
         <div className="grid grid-cols-4 lg:grid-cols-5 justify-between gap-8 gap-y-16 text-center">
           {skills.map((skill, i) => (
            <div key={i} className="flex flex-col items-center justify-center">

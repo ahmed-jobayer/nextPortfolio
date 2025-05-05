@@ -15,7 +15,7 @@ const HomePage = () => {
       <Navbar />
 
       {/* Hero Section with its own background */}
-      <section id="home" className="min-h-screen">
+      <section id="home" className="">
         <HeroSection />
       </section>
 
