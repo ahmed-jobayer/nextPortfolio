@@ -1,5 +1,4 @@
 "use client";
-import { RefObject, useRef } from "react";
 import HeroSection from "@/components/shared/HeroSection";
 import AboutMe from "@/components/shared/AboutMe";
 import Projects from "@/components/shared/Projects";
@@ -9,27 +8,11 @@ import Skills from "@/components/shared/Skills";
 import background from "@/assets/background.jpg";
 import Image from "next/image";
 
-type SectionRefs = Record<string, RefObject<HTMLElement | null>>;
-
 const HomePage = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const aboutRef = useRef<HTMLElement>(null);
-  const skillsRef = useRef<HTMLElement>(null);
-  const projectsRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
-
-  const sectionRefs: SectionRefs = {
-    home: heroRef,
-    about: aboutRef,
-    skills: skillsRef,
-    projects: projectsRef,
-    contact: contactRef,
-  };
-
   return (
     <div className="text-lightGrey">
-      <Navbar sectionRefs={sectionRefs} />
-      <section ref={heroRef} id="home" className="min-h-screen">
+      <Navbar />
+      <section id="home" className="min-h-screen">
         <HeroSection />
       </section>
       <div className="relative z-0">
@@ -43,17 +26,17 @@ const HomePage = () => {
           />
         </div>
 
-        <section ref={aboutRef} id="about" className="min-h-screen">
+        <section id="about" className="min-h-screen">
           <AboutMe />
         </section>
-        <div className= " divide-y-4 divide-classicGold"></div>
-        <section ref={skillsRef} id="skills" className="min-h-screen">
+        <div className=" divide-y-4 divide-classicGold"></div>
+        <section id="skills" className="min-h-screen">
           <Skills />
         </section>
-        <section ref={projectsRef} id="projects" className="min-h-3/4">
+        <section id="projects" className="min-h-screen">
           <Projects />
         </section>
-        <section ref={contactRef} id="contact" className="min-h-3/4">
+        <section id="contact" className="min-h-screen">
           <ContactMe />
         </section>
       </div>

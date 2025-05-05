@@ -1,7 +1,7 @@
+import { Project } from "@/app/(CommonLayout)/projects/[projectId]/page";
 import Image from "next/image";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ProjectCard = ({project}:{project: any}) => {
+const ProjectCard = ({project}:{project: Project}) => {
     return (
         <div  className="bg-lightGrey rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
         <div className="relative w-full h-48">

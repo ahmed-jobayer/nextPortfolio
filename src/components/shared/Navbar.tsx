@@ -8,16 +8,42 @@ import {
   Send,
 } from "lucide-react";
 import NavButton from "./butttons/navButton/NavButton";
-import { useState, useEffect, RefObject } from "react";
+import { useEffect, useState } from "react";
 
-type SectionRefs = Record<string, RefObject<HTMLElement | null>>;
+const handleScrollToSection = (id: string) => {
+  const sec = document.getElementById(id);
+  if (sec) {
+    sec.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
-interface NavbarProps{
-  sectionRefs:SectionRefs
-}
+const Navbar = () => {
+  const [activeSection, setActiveSection] = useState<string>("home");
 
-const Navbar : React.FC<NavbarProps> = ({ sectionRefs }) => {
-  const [activeSection, setActiveSection] = useState("home");
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      // console.log(sections);
+      let currentSectionId = "home";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (
+          rect.top <= window.innerHeight / 2 &&
+          rect.bottom >= window.innerHeight / 2
+        ) {
+          currentSectionId = section.id;
+        }
+      });
+
+      setActiveSection(currentSectionId);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Array of navigation items
   const navLinks: { id: string; icon: LucideIcon; label: string }[] = [
@@ -28,62 +54,21 @@ const Navbar : React.FC<NavbarProps> = ({ sectionRefs }) => {
     { id: "contact", icon: Send, label: "Contact" },
   ];
 
-  // Handle scroll to update active section
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200; // Offset for better UX
-
-      // Check which section is currently in view
-      Object.entries(sectionRefs).forEach(([id, ref]) => {
-        const element = ref.current;
-        if (!element) return;
-
-        const offsetTop = element.offsetTop;
-        const height = element.offsetHeight;
-
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-          setActiveSection(id);
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    // Call once to set initial active section
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [sectionRefs]);
-
-  // Function to handle click and scroll to section
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: keyof SectionRefs) => {
-    e.preventDefault();
-    const section = sectionRefs[id].current;
-    
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
-      setActiveSection(id);
-    }
-  };
-
   return (
     <div className="fixed top-1/4 right-2 z-20 w-[125px] flex justify-end">
       <div className="flex flex-col gap-4 mt-4 items-end">
         {navLinks.map(({ id, icon, label }, i) => (
-          <a 
-            href={`#${id}`}
+          <a
             key={i}
-            onClick={(e) => handleNavClick(e, id)}
+            onClick={() => handleScrollToSection(id)}
             className="flex justify-end w-full"
           >
             <NavButton
               icon={icon}
               label={label}
-              className={activeSection === id ? "!bg-classicGold !text-mutedGrey" : ""}
+              className={
+                activeSection === id ? "!bg-classicGold !text-mutedGrey" : ""
+              }
             />
           </a>
         ))}
