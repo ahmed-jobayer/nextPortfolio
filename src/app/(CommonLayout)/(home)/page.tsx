@@ -31,21 +31,21 @@ const HomePage = () => {
           />
         </div>
 
-        <section id="about" className="min-h-screen">
+        <section id="about" className="min-h-screen flex justify-center items-center">
           <AboutMe />
         </section>
 
         <div className="divide-y-4 divide-classicGold" />
 
-        <section id="skills" className="min-h-screen">
+        <section id="skills" className="min-h-screen flex justify-center items-center">
           <Skills />
         </section>
 
-        <section id="projects" className="min-h-screen">
+        <section id="projects" className="min-h-screen flex justify-center items-center">
           <Projects />
         </section>
 
-        <section id="contact" className="min-h-screen">
+        <section id="contact" className="min-h-screen flex justify-center items-center">
           <ContactMe />
         </section>
       </div>
