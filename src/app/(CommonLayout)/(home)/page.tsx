@@ -15,7 +15,7 @@ const HomePage = () => {
       <Navbar />
 
       {/* Hero Section with its own background */}
-      <section id="home" className="">
+      <section id="home" >
         <HeroSection />
       </section>
 
@@ -30,22 +30,31 @@ const HomePage = () => {
             style={{ objectFit: "cover" }}
           />
         </div>
-
-        <section id="about" className="min-h-screen flex justify-center items-center">
+        <section
+          id="about"
+          className=" flex justify-center items-center min-h-[90vh]"
+        >
           <AboutMe />
         </section>
 
-        <div className="divide-y-4 divide-classicGold" />
-
-        <section id="skills" className="min-h-screen flex justify-center items-center">
+        <section
+          id="skills"
+          className="min-h-[85vh] flex justify-center items-center"
+        >
           <Skills />
         </section>
 
-        <section id="projects" className="min-h-screen flex justify-center items-center">
+        <section
+          id="projects"
+          className="min-h-[85vh] flex justify-center items-center"
+        >
           <Projects />
         </section>
 
-        <section id="contact" className="min-h-screen flex justify-center items-center">
+        <section
+          id="contact"
+          className="min-h-[85vh] flex justify-center items-center"
+        >
           <ContactMe />
         </section>
       </div>

@@ -1,14 +1,11 @@
-
 import ProjectPage from "@/app/(CommonLayout)/projects/page";
-
-
 
 const Projects = () => {
   return (
-<>
-<ProjectPage/>
-</>
-  );
+    <>
+      <ProjectPage />
+    </>
+  ); 
 };
 
 export default Projects;

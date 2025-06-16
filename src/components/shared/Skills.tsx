@@ -8,12 +8,13 @@ import { TbBrandRedux } from "react-icons/tb";
 import SectionHeading from "./SectionHeading";
 
 const Skills = () => {
+
     const skills = [
         {
           name: "Next.js",
           icon: RiNextjsFill, 
         },
-        { 
+        {  
           name: "React",
           icon: FaReact,  
         },
@@ -70,6 +71,7 @@ const Skills = () => {
           icon: FaGithub,  
         },
       ];
+
     return (
         <div  className="container mx-auto">
         <SectionHeading title="SKILLS"/>
@@ -89,3 +91,5 @@ const Skills = () => {
 };
  
 export default Skills;
+
+
