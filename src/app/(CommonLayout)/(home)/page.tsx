@@ -58,6 +58,7 @@ const HomePage = () => {
           <ContactMe />
         </section>
       </div>
+      
     </div>
   );
 };
