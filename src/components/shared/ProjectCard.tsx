@@ -12,7 +12,7 @@ const ProjectCard = ({project}:{project: Project}) => {
           <p className="text-gray-600 mb-4">{project.description}</p>
           {project.link && (
             <a
-              href={project.link}
+              href={project.link} 
             
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline font-medium"

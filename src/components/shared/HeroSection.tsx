@@ -5,14 +5,16 @@ import developer from "@/assets/developer.png";
 import CvButton from "./butttons/cvButton/CvButton";
 import { Download, ScanEye } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
+import heroBg from "@/assets/hero-dark.jpg";
+
 const HeroSection = () => {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full">
       <div className="absolute inset-0">
         <Image
           className="z-10 brightness-50"
           alt="Hero Image"
-          src="https://i.ibb.co/tW2ZJnt/hero-dark.jpg"
+          src={heroBg}
           fill
           priority
           sizes="100vw"
@@ -23,7 +25,7 @@ const HeroSection = () => {
         />
       </div>
       {/* Content container */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2   text-offWhite items-center  h-screen ">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2   text-offWhite items-center  ">
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center px-2">
           <h1 className=" mb-4">
@@ -90,7 +92,7 @@ const HeroSection = () => {
           <div className=" w-3/4 h-3/4">
             <Image
               className=""
-              alt="Jobayer Ahmed Photo"
+              alt="Cartoon developer"
               src={developer}
 
               // width={300}

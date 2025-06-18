@@ -7,7 +7,7 @@ import {
 import { FaSquareXTwitter } from "react-icons/fa6";
 import SectionHeading from "./SectionHeading";
 
-const ContactMe = () => {
+const ContactMe = () => { 
   return (
     <div className=" min-h-[70vh] container mx-auto ">
       <SectionHeading title="CONTACCT"/>

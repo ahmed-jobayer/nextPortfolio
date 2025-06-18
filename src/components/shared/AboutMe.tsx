@@ -11,7 +11,7 @@ const AboutMe = () => {
             <p className="max-w-[450px] text-center ">
               <span className="mb-5 text-2xl font-semibold">
                 I am a MERN Stack Developer.
-              </span>
+              </span> 
               <br />I enjoy designing and building complete web applications,
               from crafting responsive frontends in Next.js and MERN. I
               continuously strive to enhance my skills by taking on challenging
