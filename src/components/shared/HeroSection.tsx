@@ -1,31 +1,22 @@
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import developer from "@/assets/developer.png";
 import CvButton from "./butttons/cvButton/CvButton";
 import { Download, ScanEye } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
-import heroBg from "@/assets/hero-dark.jpg";
 
 const HeroSection = () => {
   return (
-    <div className="w-full">
-      <div className="absolute inset-0">
-        <Image
-          className="z-10 brightness-50"
-          alt="Hero Image"
-          src={heroBg}
-          fill
-          priority
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-      </div>
+    <div className="w-full relative h-[90vh] ">
+      <Image
+        src="/assets/hero-dark.jpg"
+        alt="Hero background"
+        fill
+        priority
+        className="object-cover -z-10 brightness-[0.3]"
+      />
       {/* Content container */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2   text-offWhite items-center  ">
+      <div className=" h-full container mx-auto relative z-10  grid grid-cols-1 lg:grid-cols-2   text-offWhite items-center  ">
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center px-2">
           <h1 className=" mb-4">
@@ -93,10 +84,9 @@ const HeroSection = () => {
             <Image
               className=""
               alt="Cartoon developer"
-              src={developer}
-
-              // width={300}
-              // height={300}
+              src="/assets/developer.png"
+            width={500}
+            height={500}
             />
           </div>
         </div>

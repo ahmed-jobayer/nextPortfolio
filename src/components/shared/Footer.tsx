@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="bg-richBlack  py-5 border-t-[1px] border-cardBg z-10 ">
+    <div className="bg-richBlack  py-5 border-t-[1px] border-cardBg relative  z-10 h-16">
       <p className="text-center text-xs  text-lightGrey ">
         <span className="flex justify-center items-center">
           Developed with <Heart className="mx-1" size={15} /> by Jobayer Ahmed
@@ -16,3 +16,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+

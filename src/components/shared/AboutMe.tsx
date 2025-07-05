@@ -1,8 +1,7 @@
-import jobayerImg from "@/assets/jobayer.png";
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 const AboutMe = () => {
-  return ( 
+  return (
     <div className="">
       <div className="container mx-auto">
         <SectionHeading title="ABOUT ME" />
@@ -11,7 +10,7 @@ const AboutMe = () => {
             <p className="max-w-[450px] text-center ">
               <span className="mb-5 text-2xl font-semibold">
                 I am a MERN Stack Developer.
-              </span> 
+              </span>
               <br />I enjoy designing and building complete web applications,
               from crafting responsive frontends in Next.js and MERN. I
               continuously strive to enhance my skills by taking on challenging
@@ -24,7 +23,7 @@ const AboutMe = () => {
                 <Image
                   className=""
                   alt="Jobayer Ahmed Photo"
-                  src={jobayerImg}
+                  src="/assets/jobayer.png"
                   width={300}
                   height={300}
                 />
