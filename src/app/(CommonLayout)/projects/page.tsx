@@ -1,47 +1,43 @@
+"use client";
+
 import ProjectCard from "@/components/shared/ProjectCard";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { fetchProjects } from "@/lib/api";
+import { useEffect, useState } from "react";
+import { IProject } from "@/models/Projects";
 
 const ProjectPage = () => {
+  const [projects, setProjects] = useState<IProject[]>([]);
+  console.log(projects);
+  console.log(projects);
 
-    type Project = {
-        banner: string;
-        title: string;
-        description: string;
-        link?: string;
-      };
-      
-      const projects: Project[] = [
-        { 
-          banner: "/assets/project1.png",
-          title: 'Portfolio Website',
-          description: 'A personal portfolio built with Next.js, Tailwind CSS, and Framer Motion.',
-          link: '/projects/project1'
-        },
-        {
-          banner: "/assets/project1.png",
-          title: 'E-commerce Platform',
-          description: 'A full-stack e-commerce site with Stripe integration, Next.js API routes, and MongoDB.',
-          link: '/projects/project2'
-        },
-        {
-          banner: "/assets/project1.png",
-          title: 'Open Source CLI Tool',
-          description: 'A CLI tool for automating repetitive dev tasks, written in TypeScript and Node.js.',
-          link: '/projects/project3'
-        } 
-      ];
+  const fetchAllProjects = async () => {
+    try {
+      const res = await fetchProjects();
+      setProjects(res);
+    } catch (error) {
+      console.error("Failed to fetch projects", error);
+    }
+  };
 
-    return (
-        <div className="min-h-[70vh] px-6 py-12">
-        <SectionHeading title="PROJECTS"/>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-              <ProjectCard project = {project} key={index}/>
-    
-          ))}
-        </div>
+  useEffect(() => {
+    fetchAllProjects();
+  }, []);
+
+  if (!projects || projects.length === 0) {
+    return <div className="text-center py-8">No projects found.</div>;
+  }
+
+  return (
+    <div className="min-h-[70vh] px-6 py-12  w-full">
+      <SectionHeading title="PROJECTS" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard project={project} key={project._id || index} />
+        ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default ProjectPage;
