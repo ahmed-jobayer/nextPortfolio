@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FiGithub } from "react-icons/fi";
 import { GoLinkExternal } from "react-icons/go";
@@ -18,45 +18,41 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import CvButton from "@/components/shared/butttons/cvButton/CvButton";
 import Image from "next/image";
+import { fetchProjectById } from "@/lib/api";
+import { IProject } from "@/models/Projects";
 
-export type Project = {
-  banner: string;
-  title: string;
-  description: string;
-  link?: string;
-};
 
-const projects: Project[] = [ 
-  {
-    banner: "/assets/project1.png",
-    title: "Portfolio Website",
-    description:
-      "A personal portfolio built with Next.js, Tailwind CSS, and Framer Motion.",
-    link: "project1",
-  },
-  {
-    banner: "/assets/project1.png",
-    title: "E-commerce Platform",
-    description:
-      "A full-stack e-commerce site with Stripe integration, Next.js API routes, and MongoDB.",
-    link: "project2",
-  },
-  {
-    banner: "/assets/project1.png",
-    title: "Open Source CLI Tool",
-    description:
-      "A CLI tool for automating repetitive dev tasks, written in TypeScript and Node.js.",
-    link: "project3",
-  },
-];
 
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
+
+  console.log(projectId);
+    const [project, setProject] = useState<IProject>();
+   
+  
+    const fetchAllProjects = async () => {
+      try {
+        const res = await fetchProjectById(projectId as string);
+        console.log(res);
+        // setProject(res);
+      } catch (error) {
+        console.error("Failed to fetch featured products:", error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchAllProjects();
+    }, []);
+  
+    if (!project ) {
+      return <div className="text-center py-8">No projects found.</div>;
+    }
+
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
-  const project = projects.find((proj) => proj.link === projectId);
+
 
   if (!project) {
     return <div className="p-6 text-red-500">Project not found.</div>;

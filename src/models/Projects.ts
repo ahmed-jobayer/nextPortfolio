@@ -1,4 +1,4 @@
-import  { model, models, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 
 export interface IProject {
@@ -13,12 +13,12 @@ export interface IProject {
 
 const projectSchema = new Schema<IProject>(
     {
-        banner: {type: String, required:true, unique: true},
-        title: {type: String, required:true,},
-        description: {type: String, required:true},
-        link: {type: String, required:true, unique: true}
+        banner: { type: String, required: true, unique: true },
+        title: { type: String, required: true, },
+        description: { type: String, required: true },
+        link: { type: String, required: true, unique: true }
     },
-    {timestamps: true}
+    { timestamps: true }
 )
 
 const Project = models.Project || model("Project", projectSchema)

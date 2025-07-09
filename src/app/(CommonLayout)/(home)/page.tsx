@@ -2,14 +2,14 @@
 
 import HeroSection from "@/components/shared/HeroSection";
 import AboutMe from "@/components/shared/AboutMe";
-import Projects from "@/components/shared/Projects";
 import ContactMe from "@/components/shared/ContactMe";
 import Navbar from "@/components/shared/Navbar";
 import Skills from "@/components/shared/Skills";
+import ProjectPage from "../projects/page";
 
 const HomePage = () => {
   return (
-    <div className="text-lightGrey mb-16">
+    <div className="text-lightGrey mb-16 container mx-auto">
       <Navbar />
 
       {/* Hero Section with its own background */}
@@ -35,7 +35,7 @@ const HomePage = () => {
         id="projects"
         className="min-h-[85vh] flex justify-center items-center"
       >
-        <Projects />
+      <ProjectPage />
       </section>
 
       <section
