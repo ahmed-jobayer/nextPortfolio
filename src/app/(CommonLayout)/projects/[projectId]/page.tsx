@@ -26,7 +26,7 @@ export type Project = {
   link?: string;
 };
 
-const projects: Project[] = [
+const projects: Project[] = [ 
   {
     banner: "/assets/project1.png",
     title: "Portfolio Website",
