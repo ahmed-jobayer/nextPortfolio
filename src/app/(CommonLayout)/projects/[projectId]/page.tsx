@@ -42,14 +42,14 @@ const ProjectDetailsPage = () => {
     fetchSingleProject();
   }, [projectId]);
 
-
-
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
   if (!project) {
-    return <div className="p-6 text-red-500 min-h-screen">Project not found.</div>;
+    return (
+      <div className="p-6 text-red-500 min-h-screen">Project not found.</div>
+    );
   }
 
   return (
@@ -98,25 +98,23 @@ const ProjectDetailsPage = () => {
 
         <div className=" grid grid-cols-1 lg:grid-cols-12 gap-4 mt-4">
           <div className="col-span-12 lg:flex  space-y-4 justify-between">
-            <h2 className="text-4xl  font-semibold">
-              Smart Rental & Housing Solution
-            </h2>
+            <h2 className="text-4xl  font-semibold">{project?.title}</h2>
             <p className="flex gap-4">
-              <Link href={""}>
+              <Link href={project?.liveLink}>
                 <CvButton
                   className="!px-3"
                   icon={GoLinkExternal}
                   label="Live Link"
                 />
               </Link>
-              <Link href={""}>
+              <Link href={project?.frontendCode}>
                 <CvButton
                   className="!px-3"
                   icon={FiGithub}
                   label="Frontend Code"
                 />
               </Link>
-              <Link href={""}>
+              <Link href={project?.backendCode}>
                 <CvButton
                   className="!px-3"
                   icon={FiGithub}
@@ -128,29 +126,14 @@ const ProjectDetailsPage = () => {
           <div className="col-span-7 space-y-4">
             <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
               <h3 className="text-3xl text-offWhite mb-6">Overview</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                varius maximus sem at convallis. Praesent vitae ipsum risus.
-                Proin ultrices nulla quis porttitor consequat. Proin et
-                facilisis ligula, non feugiat nisi. Aenean tristique urna id
-                rhoncus accumsan. Integer tincidunt, mauris quis efficitur
-                vehicula, justo justo dignissim erat, ac consectetur nisl dui
-                quis massa. Sed quis vehicula odio. Orci varius natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Proin iaculis risus lacus, et blandit risus elementum sit
-                amet. Integer orci massa, fermentum ac nisl vel, volutpat
-                ullamcorper mi. Donec accumsan facilisis mauris, pulvinar tempor
-                lacus fermentum quis. Integer finibus.
-              </p>
+              <p>{project?.overview}</p>
             </div>
             <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
               <h3 className="text-3xl text-offWhite mb-6">Features</h3>
               <ul className="list-inside list-disc">
-                <li>fff</li>
-                <li>fff</li>
-                <li>fff</li>
-                <li>fff</li>
-                <li>fff</li>
+                {project?.features.map((feature, i) => (
+                  <li key={i}>{feature}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -159,25 +142,40 @@ const ProjectDetailsPage = () => {
             <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
               <h3 className="text-3xl text-offWhite mb-6">Frontend</h3>
               <div className="flex gap-3 flex-wrap">
-                <p className="bg-cardBg px-2.5 py-0.5 rounded-2xl text-classicGold">
-                  Next
-                </p>
+                {project?.technologies?.frontend.map((tec, i) => (
+                  <p
+                    key={i}
+                    className="bg-cardBg px-2.5 py-0.5 rounded-2xl text-classicGold"
+                  >
+                    {tec}
+                  </p>
+                ))}
               </div>
             </div>
             <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
               <h3 className="text-3xl text-offWhite mb-6">Backend</h3>
               <div className="flex gap-3 flex-wrap">
-                <p className="bg-cardBg px-2.5 py-0.5 rounded-2xl text-classicGold">
-                  Next
-                </p>
+                {project?.technologies?.backend.map((tec, i) => (
+                  <p
+                    key={i}
+                    className="bg-cardBg px-2.5 py-0.5 rounded-2xl text-classicGold"
+                  >
+                    {tec}
+                  </p>
+                ))}
               </div>
             </div>
             <div className=" p-4 rounded-4xl inset-shadow-xs inset-shadow-darkGrey">
               <h3 className="text-3xl text-offWhite mb-6">Tools</h3>
               <div className="flex gap-3 flex-wrap">
-                <p className="bg-cardBg px-2.5 py-0.5 rounded-2xl text-classicGold">
-                  Next
-                </p>
+                {project?.technologies?.tools.map((tec, i) => (
+                  <p
+                    key={i}
+                    className="bg-cardBg px-2.5 py-0.5 rounded-2xl text-classicGold"
+                  >
+                    {tec}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
@@ -188,5 +186,3 @@ const ProjectDetailsPage = () => {
 };
 
 export default ProjectDetailsPage;
-
-
