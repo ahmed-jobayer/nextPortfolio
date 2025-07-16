@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FiGithub } from "react-icons/fi";
 import { GoLinkExternal } from "react-icons/go";
-
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -21,41 +20,36 @@ import Image from "next/image";
 import { fetchProjectById } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 
-
-
 const ProjectDetailsPage = () => {
   const { projectId } = useParams();
 
   console.log(projectId);
-    const [project, setProject] = useState<IProject>();
-   
-  
-    const fetchAllProjects = async () => {
+  const [project, setProject] = useState<IProject>();
+  console.log(project);
+
+  useEffect(() => {
+    const fetchSingleProject = async () => {
       try {
         const res = await fetchProjectById(projectId as string);
         console.log(res);
-        // setProject(res);
+        if (res) {
+          setProject(res);
+        }
       } catch (error) {
         console.error("Failed to fetch featured products:", error);
       }
     };
-  
-    useEffect(() => {
-      fetchAllProjects();
-    }, []);
-  
-    if (!project ) {
-      return <div className="text-center py-8">No projects found.</div>;
-    }
+    fetchSingleProject();
+  }, [projectId]);
+
+
 
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
 
-
-
   if (!project) {
-    return <div className="p-6 text-red-500">Project not found.</div>;
+    return <div className="p-6 text-red-500 min-h-screen">Project not found.</div>;
   }
 
   return (
@@ -194,3 +188,5 @@ const ProjectDetailsPage = () => {
 };
 
 export default ProjectDetailsPage;
+
+
