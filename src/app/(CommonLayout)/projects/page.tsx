@@ -9,7 +9,6 @@ import { IProject } from "@/models/Projects";
 const ProjectPage = () => {
   const [projects, setProjects] = useState<IProject[]>([]);
   console.log(projects);
-  console.log(projects);
 
   const fetchAllProjects = async () => {
     try {

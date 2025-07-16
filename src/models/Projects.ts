@@ -3,20 +3,38 @@ import { model, models, Schema } from "mongoose";
 
 export interface IProject {
     _id?: string;
-    banner: string;
+    images: string[];
     title: string;
-    description: string;
-    link: string;
+    overview: string;
+    liveLink: string;
+    frontendCode: string;
+    backendCode: string;
+    features: string[];
+    technologies: {
+        frontend: string[],
+        backend: string[],
+        tools: string[]
+    };
+    isFeatured: boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }
 
 const projectSchema = new Schema<IProject>(
     {
-        banner: { type: String, required: true, unique: true },
+        images: [{ type: String, required: true }],
         title: { type: String, required: true, },
-        description: { type: String, required: true },
-        link: { type: String, required: true, unique: true }
+        overview: { type: String, required: true },
+        liveLink: { type: String, required: true},
+        frontendCode: {type: String, required: true},
+        backendCode: {type: String, required: true},
+        features:[{ type: String, required: true }],
+        technologies: {
+            frontend: [{type: String, required: true}],
+            backend: [{type: String, required: true}],
+            tools: [{type: String, required: true}],
+        },
+        isFeatured: {type:Boolean}
     },
     { timestamps: true }
 )
