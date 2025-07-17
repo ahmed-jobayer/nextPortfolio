@@ -2,12 +2,12 @@ import { connectToDatabase } from "@/lib/db";
 import Project from "@/models/Projects";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET( request: NextRequest, 
+  {params}: { params: Promise<{ id: string }> })
+  : Promise<NextResponse> {
   try {
-    const id = params.id;
+    const {id} = await params;
+    console.log('received id:', id);
 
     if (!id) {
       return NextResponse.json(
@@ -15,7 +15,7 @@ export async function GET(
         { status: 400 }
       );
     }
-
+ 
     await connectToDatabase();
     const project = await Project.findById(id);
 

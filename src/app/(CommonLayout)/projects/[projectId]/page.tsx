@@ -20,7 +20,7 @@ import Image from "next/image";
 import { fetchProjectById } from "@/lib/api";
 import { IProject } from "@/models/Projects";
 
-const ProjectDetailsPage = () => {
+const ProjectDetailsPage = () => { 
   const { projectId } = useParams();
 
   console.log(projectId);
@@ -29,6 +29,10 @@ const ProjectDetailsPage = () => {
 
   useEffect(() => {
     const fetchSingleProject = async () => {
+      if (!projectId) {
+        console.error("Project ID is not defined");
+        return;
+      }
       try {
         const res = await fetchProjectById(projectId as string);
         console.log(res);
@@ -43,7 +47,7 @@ const ProjectDetailsPage = () => {
   }, [projectId]);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 4000, stopOnInteraction: true })
   );
 
   if (!project) {
@@ -75,17 +79,19 @@ const ProjectDetailsPage = () => {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
-            {Array.from({ length: 1 }).map((_, index) => (
-              <CarouselItem key={index} className=" min-h-[65vh]">
-                <div className="p-1 ">
-                  <Card>
-                    <CardContent className="flex items-center justify-center p-6">
-                      <Image
+            {project?.images.map((imgUrl, index) => (
+              <CarouselItem key={index} className=" min-h-[65vh] ">
+                <div className="p-1 h-full">
+                  <Card className=" h-full border-none">
+                    <CardContent className="flex items-center justify-center h-full">
+                     <div className="relative w-full h-full ">
+                       <Image
                         alt=""
-                        fill={true}
-                        objectFit="Cover"
-                        src="https://res.cloudinary.com/djqafy9do/image/upload/v1750067875/cld-sample-4.jpg"
+                        fill
+                        objectFit="cover"
+                        src={imgUrl}
                       />
+                     </div>
                     </CardContent>
                   </Card>
                 </div>
@@ -100,21 +106,21 @@ const ProjectDetailsPage = () => {
           <div className="col-span-12 lg:flex  space-y-4 justify-between">
             <h2 className="text-4xl  font-semibold">{project?.title}</h2>
             <p className="flex gap-4">
-              <Link href={project?.liveLink}>
+              <Link target="_blank" href={project?.liveLink}>
                 <CvButton
                   className="!px-3"
                   icon={GoLinkExternal}
                   label="Live Link"
                 />
               </Link>
-              <Link href={project?.frontendCode}>
+              <Link target="_blank" href={project?.frontendCode}>
                 <CvButton
                   className="!px-3"
                   icon={FiGithub}
                   label="Frontend Code"
                 />
               </Link>
-              <Link href={project?.backendCode}>
+              <Link target="_blank" href={project?.backendCode}>
                 <CvButton
                   className="!px-3"
                   icon={FiGithub}
