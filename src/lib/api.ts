@@ -25,7 +25,7 @@ export async function fetchProjects(): Promise<IProject[]> {
 export async function fetchProjectById(id: string): Promise<IProject | null> {
   try {
     const response = await fetch(`/api/projects/${id}`, {
-      method: 'GET',
+      method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
       },

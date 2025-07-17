@@ -32,3 +32,6 @@ const ProjectCard = ({ project }: { project: IProject }) => {
 };
 
 export default ProjectCard;
+
+
+
