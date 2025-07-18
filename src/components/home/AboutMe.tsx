@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../shared/SectionHeading";
 const AboutMe = () => {
   return (
     <div className="">
