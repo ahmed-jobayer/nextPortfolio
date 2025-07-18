@@ -5,7 +5,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiExpress, SiMongodb, SiMongoose, SiTailwindcss, SiVite } from "react-icons/si";
 import { TbBrandRedux } from "react-icons/tb";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../shared/SectionHeading";
 
 const Skills = () => {
 

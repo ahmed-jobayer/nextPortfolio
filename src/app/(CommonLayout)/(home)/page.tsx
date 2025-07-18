@@ -1,11 +1,12 @@
 "use client";
 
-import HeroSection from "@/components/shared/HeroSection";
-import AboutMe from "@/components/shared/AboutMe";
-import ContactMe from "@/components/shared/ContactMe";
+import AboutMe from "@/components/home/AboutMe";
 import Navbar from "@/components/shared/Navbar";
-import Skills from "@/components/shared/Skills";
 import ProjectPage from "../projects/page";
+import HeroSection from "@/components/home/HeroSection";
+import Skills from "@/components/home/Skills";
+import ContactMe from "@/components/home/ContactMe";
+import Experience from "@/components/home/Experience";
 
 const HomePage = () => {
   return (
@@ -36,6 +37,12 @@ const HomePage = () => {
         className="min-h-[85vh] flex justify-center items-center"
       >
       <ProjectPage />
+      </section>
+      <section
+        id="experience"
+        className="min-h-[85vh] flex justify-center items-center"
+      >
+      <Experience />
       </section>
 
       <section

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import CvButton from "./butttons/cvButton/CvButton";
 import { Download, ScanEye } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
+import CvButton from "../shared/butttons/cvButton/CvButton";
 
 const HeroSection = () => {
   return (

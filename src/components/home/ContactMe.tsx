@@ -5,7 +5,7 @@ import {
   FaWhatsappSquare,
 } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../shared/SectionHeading";
 
 const ContactMe = () => { 
   return (
