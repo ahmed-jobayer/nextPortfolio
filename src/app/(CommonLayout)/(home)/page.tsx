@@ -20,7 +20,7 @@ const HomePage = () => {
 
       <section
         id="about"
-        className=" flex justify-center items-center min-h-[90vh]"
+        className="  min-h-[90vh]"
       >
         <AboutMe />
       </section>
