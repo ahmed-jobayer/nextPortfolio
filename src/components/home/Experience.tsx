@@ -1,81 +1,120 @@
-import { CalendarDays } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 import SectionHeading from "../shared/SectionHeading";
 
-const Experience = () => {
-  const experiences = [
-      {
-    id: 1,
-    title: "GoldenRow",
-    period: "Apr 2024 – Present",
-    role: "Product Researcher & Sales Strategist",
-    highlights: [
-      "Developed product sourcing strategies based on trend and keyword data",
-      "Collaborated with marketing teams to align product offerings with customer demand",
-      "Helped optimize pricing and promotional strategies for higher sales",
-      "Maintained consistent communication and reporting in a fully remote role",
-    ],
-  },
-      {
-    id: 2,
-    title: "Radyan Corporation",
-    period: "Aug 2023 – Mar 2024",
-    role: "Product Researcher & Virtual Assistant",
-    highlights: [
-      "Performed detailed Amazon product research using tools like Helium 10",
-      "Optimized product listings to improve visibility and conversion",
-      "Assisted in competitor and market analysis for new product launches",
-      "Worked remotely in a cross-functional e-commerce team",
-    ],
-  },
+interface Experience {
+  id: number;
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  type: string;
+  description: string;
+  achievements: string[];
+}
 
+const Experience = () => {
+  const experiences: Experience[] = [
+    {
+      id: 1,
+      company: "GoldenRow",
+      role: "Product Researcher, Sales Strategist & Trainner",
+      period: "Apr 2024 – Present",
+      location: "Remote",
+      type: "Part-time",
+      description: "Leading product research and sales strategy initiatives for e-commerce optimization.",
+      achievements: [
+        "Developed data-driven product sourcing strategies using trend analysis",
+        "Collaborated with cross-functional teams to align offerings with market demands",
+        "Optimized pricing strategies resulting in improved sales performance",
+        "Maintained high-quality remote communication and reporting standards"
+      ]
+    },
+    {
+      id: 2,
+      company: "Radyan Corporation",
+      role: "Product Researcher & Virtual Assistant",
+      period: "Aug 2023 – Mar 2024",
+      location: "Remote",
+      type: "Full-time",
+      description: "Specialized in Amazon marketplace research and e-commerce optimization.",
+      achievements: [
+        "Conducted comprehensive product research ",
+        "Enhanced product listings to improve visibility and conversion rates",
+        "Performed competitive analysis for strategic new product launches",
+        "Contributed to cross-functional e-commerce team initiatives"
+      ]
+    }
   ];
 
   return (
-    <div className="">
-      <SectionHeading title="EXPERIENCES" />
-
-      <div className="relative">
-        {/* Main timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-classicGold/30"></div>
-
-        <div className="space-y-24">
-          {experiences.map((experience, index) => (
-            <div key={experience.id} className="relative">
-              {/* Timeline dot */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 -top-3 w-6 h-6 rounded-full bg-richBlack border-2 border-classicGold z-10"></div>
-
-              {/* Experience card */}
-              <div
-                className={`w-full md:w-[45%] ${
-                  index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-                } relative`}
-              >
-                {/* Date badge */}
-                <div className="absolute top-1  flex items-center space-x-2 text-classicGold text-sm font-mono">
-                  <CalendarDays className="w-4 h-4" />
-                  <span>{experience.period}</span>
-                </div>
-
-                {/* Content card */}
-                <div className="bg-cardBg w-full mt-10 p-6 rounded-lg border border-mutedGrey hover:border-classicGold/50 transition-all duration-300 shadow-lg hover:shadow-classicGold/10">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {experience.title}
-                  </h3>
-                  <p className="text-lightGrey mb-4 text-sm">
-                    {experience.role}
+    <div className="container mx-auto px-4">
+      <SectionHeading title="EXPERIENCE" />
+      
+      <div className="">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+          {experiences.map((experience) => (
+            <div 
+              key={experience.id} 
+              className="relative group h-fit "
+            >
+              {/* Experience Card */}
+              <div className="bg-cardBg/30 backdrop-blur-sm border border-mutedGrey/20 rounded-2xl p-6 hover:bg-cardBg/50 hover:border-classicGold/30 transition-all duration-300 h-full">
+                
+                {/* Header */}
+                <div className="mb-6">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2 flex-wrap">
+                        <h3 className="text-lg md:text-xl font-bold text-white transition-colors duration-300">
+                          {experience.role}
+                        </h3>
+                        <span className="px-2 py-1 text-xs font-medium bg-classicGold/10 text-classicGold rounded-full border border-classicGold/20">
+                          {experience.type}
+                        </span>
+                      </div>
+                      
+                      <p className="text-base text-lightGrey font-medium mb-3">
+                        {experience.company}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Meta Info */}
+                  <div className="flex flex-col gap-2 text-sm text-lightGrey/70 mb-4">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-classicGold" />
+                      <span>{experience.period}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-classicGold" />
+                      <span>{experience.location}</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-lightGrey/80 leading-relaxed text-sm">
+                    {experience.description}
                   </p>
-
-                  <div className="space-y-3">
-                    {experience.highlights.map((highlight, i) => (
-                      <div key={i} className="flex items-start space-x-3">
-                        <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-classicGold/20 flex items-center justify-center">
-                          <div className="w-2 h-2 rounded-full bg-classicGold"></div>
-                        </div>
-                        <p className="text-offWhite text-sm">{highlight}</p>
+                </div>
+                
+                {/* Achievements */}
+                <div className="space-y-3">
+                  <h4 className="text-xs font-semibold text-lightGrey uppercase tracking-wide">
+                    Key Achievements
+                  </h4>
+                  <div className="grid gap-2">
+                    {experience.achievements.map((achievement, i) => (
+                      <div key={i} className="flex items-start gap-3 group/item">
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-classicGold flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200"></div>
+                        <p className="text-lightGrey/90 leading-relaxed group-hover/item:text-white transition-colors duration-200 text-sm">
+                          {achievement}
+                        </p>
                       </div>
                     ))}
                   </div>
                 </div>
+                
+                {/* Subtle decorative element */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-classicGold/20 to-transparent rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </div>
           ))}
