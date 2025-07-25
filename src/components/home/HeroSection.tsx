@@ -19,24 +19,28 @@ const HeroSection = () => {
       <div className=" h-full container mx-auto relative z-10  grid grid-cols-1 lg:grid-cols-2   text-offWhite items-center  ">
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center px-2">
-          <h1 className=" mb-4">
-            <span className="text-classicGold text-3xl font-semibold md:text-5xl">
+          <div className=" mb-4">
+            <h1 className="text-classicGold text-3xl font-semibold md:text-5xl">
               -I AM JOBAYER AHMED.
-            </span>{" "}
-            <br />{" "}
-            <TypeAnimation
-              sequence={[
-                // Same substring at the start will only be typed once, initially
-                "FULL STACK DEVELOPER IN NEXT.js",
-                1000,
-                "FULL STACK DEVELOPER IN MERN",
-                1000,
-              ]}
-              speed={10}
-              style={{ fontSize: "1em" }}
-              repeat={Infinity}
-            />
-          </h1>
+            </h1>
+              {/* Animated Role */}
+            <div className="text-xl md:text-2xl text-lightGrey font-light h-10 flex justify-center mt-4">
+              <TypeAnimation
+                sequence={[
+                  "Full Stack Developer",
+                  2000,
+                  "MERN Stack Specialist",
+                  2000,
+                  "Next.js Expert",
+                  2000,
+                  "React Developer",
+                  2000,
+                ]}
+                speed={10}
+                repeat={Infinity}
+              />
+            </div>
+          </div>
           <p className=" w-2/3 mb-5 text-lightGrey">
             I am a Bangladesh based web developer focused on crafting clean &
             user‑friendly experiences, I am passionate about building excellent
