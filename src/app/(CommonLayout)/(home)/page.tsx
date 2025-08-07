@@ -2,11 +2,11 @@
 
 import AboutMe from "@/components/home/AboutMe";
 import Navbar from "@/components/shared/Navbar";
-import ProjectPage from "../projects/page";
 import HeroSection from "@/components/home/HeroSection";
 import Skills from "@/components/home/Skills";
 import ContactMe from "@/components/home/ContactMe";
 import Experience from "@/components/home/Experience";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
 
 const HomePage = () => {
   return (
@@ -36,7 +36,7 @@ const HomePage = () => {
         id="projects"
         className="min-h-[85vh] flex justify-center items-center"
       >
-      <ProjectPage />
+      <FeaturedProjects />
       </section>
       <section
         id="experience"
